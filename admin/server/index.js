@@ -43,7 +43,7 @@ app.get("/search", async (req, res) => {
   }
 
   try {
-    // 1. RETRIEVE: Fetch context from all relevant website sections
+   
     console.log(`Searching for: "${q}"`);
     // FIXED: Removed the endpoints that were causing 404 errors. 
     // WordPress custom post types often need special API registration to work.
@@ -59,7 +59,7 @@ app.get("/search", async (req, res) => {
       return res.json({ answer: "Sorry, I couldn't find any information about that on the MLRIT website. Please try asking in a different way." });
     }
 
-    // 2. AUGMENT: Prepare the fetched data as context for the AI
+   
     console.log(`Found ${foundItems.length} items. Preparing context for AI...`);
     const context = foundItems.map(item => {
         const title = item.title?.rendered || '';
